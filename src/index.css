@@ -1,0 +1,190 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 34% 13%;
+    --foreground: 222.2 84% 94.9%;
+
+    --card: 220 34% 15%;
+    --card-foreground: 222.2 84% 94.9%;
+
+    --popover: 222 34% 17%;
+    --popover-foreground: 222.2 84% 94.9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 35% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 38% 22%;
+    --muted-foreground: 215.4 16.3% 76.9%;
+
+    --accent: 220 35% 26%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 25.4%;
+    --input: 214.3 31.8% 23.4%;
+    --ring: 222.2 84% 73.9%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-neon;
+  }
+  
+  .password-input-wrapper {
+    @apply relative flex items-center w-full;
+  }
+  
+  .password-toggle-btn {
+    @apply absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none;
+  }
+  
+  .strength-meter {
+    @apply h-2 w-full rounded-full overflow-hidden bg-secondary mt-2 transition-all duration-300;
+  }
+  
+  .strength-meter-fill {
+    @apply h-full transition-all duration-500 ease-out;
+  }
+  
+  .password-feedback {
+    @apply mt-3 text-sm;
+  }
+  
+  .animate-ping-slow {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Professional UI enhancements */
+  .card {
+    @apply transition-all duration-300 hover:shadow-xl;
+  }
+  
+  button {
+    @apply transition-all duration-300;
+  }
+  
+  input, select, textarea {
+    @apply transition-all duration-300;
+  }
+}
+
+/* Gradient backgrounds */
+.bg-gradient-cybersec {
+  background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+  background-attachment: fixed;
+}
+
+.bg-gradient-neon {
+  background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+
+/* Slide animations */
+.slide-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 500ms ease-in-out;
+}
+
+.slide-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
